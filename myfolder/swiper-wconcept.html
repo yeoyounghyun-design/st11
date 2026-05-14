@@ -253,74 +253,9 @@
       <!-- //.swiper -->
     </div>
     <!-- //.visual-section -->
-    <!-- swiper 실행 -->
-    <script>
-  const swiper1 = new Swiper('.swiper1', {
-  // Optional parameters
-  direction: 'horizontal',
-  loop: true,
-
-  // 현재슬라이드 swiper안에 가운데
-  // swipeer 시작할 때 1번 슬라이드 왼쪽에 마지막 슬라이드 표시
-  centeredSlides: true,
-
-  // swiper 안에 몇개 slide를 보여줄지 결정
-  // 3을 위해서 추가
-  slidesPerView: 3,
-
-  // 5여백
-  // swiper에서는 아이템간 여백을 marin-right로 지정
-  spaceBetween: 20,
-
-  //autoplay 추가
-  autoplay: {
-  delay: 3000,
-  disableOnInteraction: false,
-},
-  // If we need pagination
-  pagination: {
-    el: '.swiper-pagination',
-    // 7 블릿대신 progressbar
-    type : 'progressbar',
-    clickable :true,
-  },
-
-  // Navigation arrows
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-    // 내가 입력 html img 태그 이미지 사용
-    addIcons:false,
-  },
-
-  // And if we need scrollbar
-  // progressbar일때 삭제
-  // scrollbar: {
-  //   el: '.swiper-scrollbar',
-  // },
-});
-
-// 재생/정지 토글 기능
-const playToggleBtn = document.querySelector('.swiper-button-play-toggle');
-
-// 초기 상태: 재생 중 (is-play 클래스 유지)
-let isPlaying = true;
-
-playToggleBtn.addEventListener('click', function() {
-  isPlaying = !isPlaying;
-
-  if (isPlaying) {
-    // 재생 상태로 변경
-    swiper1.autoplay.start();
-    playToggleBtn.classList.remove('is-pause');
-    playToggleBtn.classList.add('is-play');
-  } else {
-    // 정지 상태로 변경
-    swiper1.autoplay.stop();
-    playToggleBtn.classList.remove('is-play');
-    playToggleBtn.classList.add('is-pause');
-  }
-});
-</script>
+    <!-- Swiper 슬라이더 스크립트 외부 로드 -->
+    <!-- Cafe24 환경: @js(url)구문으로 변경 가능  --> 
+    <!-- 외부 JS 파일 참조: 재생/정지 토글 버튼 + Swiper 초기화 -->
+    <script src="js/myscript.js" defer></script>
   </body>
 </html>
