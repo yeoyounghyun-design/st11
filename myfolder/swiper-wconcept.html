@@ -272,6 +272,11 @@
   // swiper에서는 아이템간 여백을 marin-right로 지정
   spaceBetween: 20,
 
+  //autoplay 추가
+  autoplay: {
+  delay: 3000,
+  disableOnInteraction: false,
+},
   // If we need pagination
   pagination: {
     el: '.swiper-pagination',
@@ -293,6 +298,28 @@
   // scrollbar: {
   //   el: '.swiper-scrollbar',
   // },
+});
+
+// 재생/정지 토글 기능
+const playToggleBtn = document.querySelector('.swiper-button-play-toggle');
+
+// 초기 상태: 재생 중 (is-play 클래스 유지)
+let isPlaying = true;
+
+playToggleBtn.addEventListener('click', function() {
+  isPlaying = !isPlaying;
+
+  if (isPlaying) {
+    // 재생 상태로 변경
+    swiper1.autoplay.start();
+    playToggleBtn.classList.remove('is-pause');
+    playToggleBtn.classList.add('is-play');
+  } else {
+    // 정지 상태로 변경
+    swiper1.autoplay.stop();
+    playToggleBtn.classList.remove('is-play');
+    playToggleBtn.classList.add('is-pause');
+  }
 });
 </script>
   </body>
